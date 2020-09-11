@@ -34,8 +34,8 @@ public class ClientHandler {
 
                             if (newNick != null) {
                                 nickname = newNick;
-                                sendMsg("/authok1 " + nickname);    //почему первый раз не печатает?
-                                sendMsg("/authok2 " + nickname);
+                                sendMsg("/authok " + nickname);    //почему первый раз не печатает?
+                                sendMsg("/authok " + nickname);
                                 server.subscribe(this);
                                 System.out.println("Клиент " + nickname + " подключился");
                                 break;
