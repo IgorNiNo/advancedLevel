@@ -111,6 +111,10 @@ public class Controller implements Initializable {
                         while (true) {
                             String str = in.readUTF();
 
+                            if(str.equals("/end")) {
+                                throw new EOFException ();
+                            }
+
                             if (str.startsWith("/authok")) {
                                 nickname = str.split(" ", 2)[1];
                                 setAuthenticated(true);
@@ -149,7 +153,7 @@ public class Controller implements Initializable {
                             }
                         }
                     } catch (EOFException e) {
-                        System.out.println("Клиент отключился по тайм-ауту");
+                        System.out.println("Сервер закрыл соединение по тайм-ауту");
 //                        e.printStackTrace();
                     } catch (IOException e) {
                         e.printStackTrace();
